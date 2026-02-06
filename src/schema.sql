@@ -24,7 +24,7 @@ CREATE TABLE locations
 location_id TEXT NOT NULL PRIMARY KEY,
 name TEXT NOT NULL,
 address TEXT NOT NULL,
-phone_number CHAR(11) NOT NULL CHECK (length(phone_number)=12),
+phone_number CHAR(12) NOT NULL CHECK (length(phone_number)=12),
 email TEXT NOT NULL CHECK(email like '%@%'),
 opening_hours TEXT
 CHECK (opening_hours GLOB '[0-9][0-9]:[0-9][0-9]-[0-9][0-9]:[0-9][0-9]')
@@ -36,13 +36,13 @@ member_id TEXT PRIMARY KEY,
 first_name TEXT NOT NULL,
 last_name TEXT NOT NULL,
 email TEXT NOT NULL CHECK(email like '%@%'),
-phone_number CHAR(11) NOT NULL CHECK (length(phone_number)=12),
+phone_number CHAR(12) NOT NULL CHECK (length(phone_number)=12),
 date_of_birth TEXT NOT NULL
 CHECK(date_of_birth GLOB '[0-3][0-9]-[0-1][0-9]-[1-2][0-9][0-9][0-9]'),
 join_date TEXT NOT NULL
-CHECK(join_date GLOB '6'),
+CHECK(join_date GLOB '[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]'),
 emergency_contact_name TEXT NOT NULL,
-emergency_contact_phone CHAR(12) NOT NULL CHECK (length(phone_number)=12)
+emergency_contact_phone CHAR(12) NOT NULL CHECK (length(emergency_contact_phone)=12)
 );
 
 CREATE TABLE staff 
