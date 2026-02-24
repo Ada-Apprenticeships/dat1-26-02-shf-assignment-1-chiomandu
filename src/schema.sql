@@ -24,7 +24,7 @@ CREATE TABLE locations
 location_id TEXT NOT NULL PRIMARY KEY,
 name TEXT NOT NULL,
 address TEXT NOT NULL,
-phone_number CHAR(12) NOT NULL CHECK (length(phone_number)=12),
+phone_number NOT NULL,
 email TEXT NOT NULL CHECK(email like '%@%'),
 opening_hours TEXT
 CHECK (opening_hours GLOB '[0-9][0-9]:[0-9][0-9]-[0-9][0-9]:[0-9][0-9]')

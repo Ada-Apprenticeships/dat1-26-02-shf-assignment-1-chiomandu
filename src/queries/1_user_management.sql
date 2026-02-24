@@ -16,14 +16,30 @@ SELECT COUNT * AS total_members
 FROM members;
 
 -- 1.4
-SELECT 
-m.member_id, m.first_name, m.last_name,
+SELECT m.member_id, m.first_name, m.last_name,
 COUNT(ca.class_attendance_id) AS registration_count FROM member AS m 
 LEFT JOIN class_attendance AS ca 
-
+ON m.member_id= ca.member_id
+AND ca.attendance_status= 'Registered'
+GROUP BY m.member_id, m.first_name, m.last_name
+ORDER BY registration_count DESC;
 
 -- 1.5
-
+SELECT m.member_id, m.first_name, m.last_name,
+COUNT(ca.class_attendance_id) AS registration_count FROM member AS m 
+LEFT JOIN class_attendance AS ca 
+ON m.member_id= ca.member_id
+AND ca.attendance_status= 'Registered'
+GROUP BY m.member_id, m.first_name, m.last_name
+ORDER BY registration_count ASC;
 
 -- 1.6
 
+SELECT COUNT * AS member_two_classes
+FROM(
+    SELECT member_id
+    COUNT(class_attendance_id) AS attended_count FROM class_attendance
+    WHERE attendance_status= 'Attended'
+    GROUP BY member_id
+    HAVING COUNT (class_attendance_id <= 2)
+);
