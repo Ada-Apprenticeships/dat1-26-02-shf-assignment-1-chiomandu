@@ -3,7 +3,6 @@
 
 -- 2.1 
 INSERT INTO payments(
-    payment_id,
     member_id,
     amount,
     payment_date,
@@ -12,7 +11,6 @@ INSERT INTO payments(
 )
 
 VALUES(
-    '7',
     '11',
     '50.00',
     datetime('now'),
@@ -28,6 +26,6 @@ FROM payments
 WHERE description LIKE '%membership fee%';
 
 -- 2.3 
-SELECT payment_id,amount,payment_date,payment_method,
+SELECT payment_id, amount, payment_date, payment_method
 FROM payments
-WHERE purchase_type = 'day pass';
+WHERE payment_method = 'Day pass';
