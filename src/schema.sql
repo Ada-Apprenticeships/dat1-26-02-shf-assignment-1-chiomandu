@@ -157,7 +157,7 @@ payment_date TEXT NOT NULL
 CHECK(payment_date GLOB '[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]:[0-5][0-9]'),
 payment_method TEXT NOT NULL
 CHECK(payment_method IN ('Credit Card', 'Bank Transfer', 'PayPal', 'Cash', 'Day pass')),
-description TEXT,
+payment_type TEXT,
 FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 
