@@ -62,6 +62,6 @@ FROM (
     FROM class_attendance
     WHERE attendance_status = 'Attended'
     GROUP BY member_id
-    --Results only count people who attended 2 or less classes
+--Results only count people who attended 2 or less classes
     HAVING COUNT(class_attendance_id) <= 2
 ) AS member_counts;

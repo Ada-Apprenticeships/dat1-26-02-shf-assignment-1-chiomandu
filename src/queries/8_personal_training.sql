@@ -14,7 +14,7 @@ JOIN staff AS s
     ON pt.staff_id = s.staff_id
 JOIN members AS m
     ON pt.member_id = m.member_id
---Filter fir trainer  first and last name
+--Filter for trainer first and last name
 WHERE s.first_name = 'Ivy'
   AND s.last_name = 'Irwin'
 --Order sessions chronologically
